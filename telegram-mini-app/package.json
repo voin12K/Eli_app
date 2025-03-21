@@ -4,6 +4,8 @@
   "description": "A mini app for Telegram using React for the frontend and Node.js for the backend.",
   "main": "src/backend/server.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "node src/backend/server.js",
     "build": "webpack --mode production",
     "dev": "webpack serve --mode development"
@@ -22,10 +24,12 @@
     "eslint": "^7.27.0",
     "eslint-plugin-react": "^7.27.0",
     "gh-pages": "^6.3.0",
-    "webpack": "^5.37.1",
-    "webpack-cli": "^4.7.0",
+    "html-webpack-plugin": "^5.6.3",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^3.11.2"
   },
+  "homepage": "https://voin12K.github.io/Eli_app",
   "keywords": [
     "telegram",
     "bot",

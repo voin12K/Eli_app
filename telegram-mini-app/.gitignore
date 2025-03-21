@@ -12,7 +12,7 @@ package-lock.json
 logs
 *.log
 logs/*.log
-
+bundle.js
 # OS files
 .DS_Store
 Thumbs.db

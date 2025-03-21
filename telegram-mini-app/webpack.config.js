@@ -1,11 +1,12 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
     entry: './src/frontend/index.jsx',
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'build'),
         filename: 'bundle.js',
-        publicPath: '/'
+        publicPath: './', // Указывает относительный путь
     },
     resolve: {
         extensions: ['.js', '.jsx']
@@ -22,18 +23,19 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
-            },
-            {
-                test: /\.html$/,
-                use: ['html-loader']
             }
         ]
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './src/frontend/index.html',
+        })
+    ],
     devServer: {
-        contentBase: path.join(__dirname, 'dist'),
+        contentBase: path.join(__dirname, 'build'),
         compress: true,
         port: 3000,
         historyApiFallback: true
     },
-    mode: 'development'
+    mode: 'production'
 };
